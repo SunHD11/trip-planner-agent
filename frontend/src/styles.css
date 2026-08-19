@@ -1,0 +1,166 @@
+:root {
+  color: #21352f;
+  background: #f4efe5;
+  font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #21352f;
+  --forest: #244d3f;
+  --lime: #d8ef73;
+  --paper: #fffdf7;
+  --muted: #6f7972;
+  --line: rgba(33, 53, 47, 0.16);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
+button, select { cursor: pointer; }
+
+.hero {
+  min-height: 100vh;
+  padding: 0 clamp(20px, 5vw, 76px) 72px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 5% 90%, rgba(216, 239, 115, 0.5), transparent 25%),
+    linear-gradient(135deg, #f6f0e5 0%, #eef0dc 100%);
+}
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1440px; height: 84px; margin: 0 auto; border-bottom: 1px solid var(--line);
+}
+.brand { color: var(--ink); font: 700 22px Georgia, "Songti SC", serif; text-decoration: none; }
+.service-status { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: 13px; }
+.service-status i { width: 8px; height: 8px; border-radius: 50%; background: #c77b69; }
+.service-status.online i { background: #48a373; box-shadow: 0 0 0 4px rgba(72, 163, 115, 0.13); }
+
+.hero-content {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(520px, 1.1fr);
+  gap: clamp(48px, 8vw, 120px); align-items: center; max-width: 1320px;
+  min-height: calc(100vh - 84px); margin: 0 auto; padding: 56px 0;
+}
+.eyebrow { margin: 0 0 20px; color: #557063; font-size: 12px; font-weight: 800; letter-spacing: .2em; }
+.intro h1 {
+  max-width: 720px; margin: 0; font: 500 clamp(46px, 5.5vw, 80px)/1.08 Georgia, "Songti SC", serif;
+  letter-spacing: -.04em;
+}
+.intro h1 em {
+  color: var(--forest); font-weight: 500; text-decoration: underline; text-decoration-color: var(--lime);
+  text-decoration-thickness: .28em; text-underline-offset: -.12em; text-decoration-skip-ink: none;
+}
+.intro-copy { max-width: 590px; margin: 34px 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
+.feature-notes { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 13px; font-weight: 700; }
+.feature-notes span::before { margin-right: 8px; color: #799420; content: "✓"; }
+
+.form-card {
+  padding: clamp(24px, 4vw, 44px); border: 1px solid rgba(33, 53, 47, .1); border-radius: 28px;
+  background: rgba(255, 253, 247, .9); box-shadow: 0 28px 90px rgba(48, 67, 53, .13); backdrop-filter: blur(18px);
+}
+.form-card-heading { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 30px; }
+.form-card-heading > span {
+  display: grid; width: 38px; height: 38px; place-items: center; border-radius: 50%;
+  background: var(--lime); font-size: 12px; font-weight: 800;
+}
+.form-card-heading h2 { margin: 0 0 6px; font: 700 26px Georgia, "Songti SC", serif; }
+.form-card-heading p { margin: 0; color: var(--muted); font-size: 14px; }
+
+.trip-form, .field { display: flex; flex-direction: column; }
+.trip-form { gap: 20px; }
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { min-width: 0; gap: 8px; margin: 0; padding: 0; border: 0; }
+.field label, .field legend { color: #51615a; font-size: 13px; font-weight: 700; }
+.field input, .field select, .field textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px;
+  outline: none; color: var(--ink); background: rgba(255, 255, 255, .72); transition: 160ms ease;
+}
+.field textarea { resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: #78944d; box-shadow: 0 0 0 3px rgba(120, 148, 77, .14);
+}
+.preference-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.preference-chip {
+  padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px;
+  color: #536059; background: transparent; font-size: 12px;
+}
+.preference-chip:hover, .preference-chip.active { border-color: var(--forest); color: white; background: var(--forest); }
+.field-error, .error-banner { margin: -10px 0 0; color: #a84436; font-size: 13px; }
+.error-banner { margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: #fff0ec; }
+.submit-button {
+  display: flex; align-items: center; justify-content: center; min-height: 54px; margin-top: 4px;
+  border: 0; border-radius: 14px; color: white; background: var(--forest); font-weight: 800; transition: 160ms ease;
+}
+.submit-button:hover:not(:disabled) { transform: translateY(-2px); background: #193d32; }
+.submit-button:disabled { cursor: not-allowed; opacity: .65; }
+.spinner {
+  width: 17px; height: 17px; margin-right: 10px; border: 2px solid rgba(255,255,255,.35);
+  border-top-color: white; border-radius: 50%; animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result-panel { max-width: 1080px; margin: 0 auto; padding: 100px clamp(20px, 5vw, 72px); }
+.result-heading {
+  display: flex; gap: 32px; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 34px; border-bottom: 1px solid var(--line);
+}
+.result-heading h2 { margin: 0 0 8px; font: 700 clamp(34px, 5vw, 54px) Georgia, "Songti SC", serif; }
+.result-heading p { margin: 0; color: var(--muted); }
+.budget { flex: 0 0 auto; text-align: right; }
+.budget span { display: block; color: var(--muted); font-size: 12px; }
+.budget strong { font: 700 32px Georgia, serif; }
+.timeline { margin-top: 42px; }
+.day-card { display: grid; grid-template-columns: 52px 1fr; gap: 24px; position: relative; padding-bottom: 48px; }
+.day-card:not(:last-child)::before {
+  position: absolute; top: 44px; bottom: 0; left: 25px; width: 1px; background: var(--line); content: "";
+}
+.day-marker {
+  display: grid; z-index: 1; width: 52px; height: 52px; place-items: center; border-radius: 50%;
+  color: white; background: var(--forest); font: 20px Georgia, serif;
+}
+.day-content { padding-top: 4px; }
+.day-title { display: flex; gap: 20px; align-items: baseline; justify-content: space-between; }
+.day-title h3 { margin: 0; font: 700 26px Georgia, "Songti SC", serif; }
+.day-title time { color: var(--muted); font-size: 13px; }
+.day-description { color: var(--muted); line-height: 1.7; }
+.plan-block h4 { margin: 24px 0 12px; font-size: 13px; letter-spacing: .08em; }
+.attraction-list {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none;
+}
+.attraction-list li {
+  display: flex; flex-direction: column; gap: 5px; padding: 16px; border: 1px solid var(--line);
+  border-radius: 14px; background: rgba(255, 253, 247, .55);
+}
+.attraction-list span, .attraction-list small { color: var(--muted); line-height: 1.5; }
+.meal-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.meal-list span { padding: 7px 11px; border-radius: 8px; background: rgba(216,239,115,.35); font-size: 12px; }
+.suggestion { margin-top: 12px; padding: 24px; border-left: 4px solid var(--lime); background: var(--paper); }
+.suggestion p { margin: 8px 0 0; color: var(--muted); line-height: 1.7; }
+footer {
+  display: flex; justify-content: space-between; padding: 32px clamp(20px, 5vw, 76px);
+  border-top: 1px solid var(--line); color: var(--muted); font-size: 13px;
+}
+footer span { color: var(--ink); font: 700 15px Georgia, "Songti SC", serif; }
+footer p { margin: 0; }
+
+@media (max-width: 960px) {
+  .hero-content { grid-template-columns: 1fr; gap: 48px; }
+  .intro { padding-top: 20px; }
+}
+@media (max-width: 620px) {
+  .topbar { height: 68px; }
+  .hero-content { padding-top: 38px; }
+  .field-grid, .attraction-list { grid-template-columns: 1fr; }
+  .form-card { border-radius: 20px; }
+  .result-heading, footer { align-items: flex-start; flex-direction: column; }
+  .budget { text-align: left; }
+  .day-card { grid-template-columns: 42px 1fr; gap: 14px; }
+  .day-marker { width: 42px; height: 42px; }
+  .day-card:not(:last-child)::before { top: 38px; left: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important; transition-duration: .01ms !important;
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+  }
+}
