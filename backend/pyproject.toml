@@ -1,10 +1,30 @@
 [project]
 name = "trip-planner"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+description = "智能旅行助手后端：FastAPI + 单 Agent（原生 function calling）"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-    "dotenv>=0.9.9",
+    # Web 框架
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    # 数据模型与配置
+    "pydantic>=2.7",
+    "pydantic-settings>=2.5",
+    "python-dotenv>=1.0",
+    # HTTP 客户端（高德 REST API）
+    "httpx>=0.27",
+    # LLM（OpenAI 兼容接口）
     "openai>=3.3.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=5.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
