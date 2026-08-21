@@ -6,6 +6,14 @@
 
 *输入目的地、日期和偏好，Agent 会自动查询真实景点、天气与交通，生成逐日可执行的行程方案；更重要的是，整份代码本身就是一份可运行的「Agent 内部原理」学习笔记。*
 
+<p align="center">
+  <a href="https://github.com/SunHD11/trip-planner-agent/stargazers"><img src="https://img.shields.io/github/stars/SunHD11/trip-planner-agent?style=flat-square&color=yellow" alt="Stars"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/SunHD11/trip-planner-agent?style=flat-square&color=blue" alt="License"></a>
+  <img src="https://img.shields.io/badge/Python-3.12+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Vue-3.5-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white" alt="Vue">
+  <img src="https://img.shields.io/badge/tests-80%20passed-success?style=flat-square" alt="Tests">
+</p>
+
 </div>
 
 ---
